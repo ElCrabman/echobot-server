@@ -8,8 +8,12 @@ const imageModes = () => {
     const yamlFilePath = path.join(__dirname, 'image_modes.yml');
     const jsonImageModes = fs.readFileSync(yamlFilePath, 'utf-8');
 
-    return yaml.dump(jsonImageModes);
+    return jsonImageModes;
+
+    // return yaml.dump(jsonImageModes);
 }
+
+imageModes()
 
 const generateEnv = (data) => {
     
