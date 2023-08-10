@@ -1,4 +1,15 @@
+const yaml = require('js-yaml');
+const fs = require('fs');
+const path = require('path');
+
 require('dotenv').config()
+
+const imageModes = () => {
+    const yamlFilePath = path.join(__dirname, 'image_modes.yml');
+    const jsonImageModes = fs.readFileSync(yamlFilePath, 'utf-8');
+
+    return yaml.dump(jsonImageModes);
+}
 
 const generateEnv = (data) => {
     
@@ -14,6 +25,21 @@ const generateEnv = (data) => {
 
     return { name, configMap };
 };
+
+const generateFeatures = (data, podname) => {
+    return {
+        apiVersion: "v1",
+        kind: "ConfigMap",
+        metadata: {
+          name: `${podname}-features`
+        },
+        data: {
+          "features.yml": data,
+          "image_modes.yml": imageModes()
+        }
+      }
+      
+}
 
 
 const generateTelegram = (name, image) => {
@@ -45,7 +71,19 @@ const generateTelegram = (name, image) => {
                   containers: [{
                       name: 'echobot-telegram', 
                       image: image,
-                      imagePullPolicy: 'Always',                       
+                      imagePullPolicy: 'Always',  
+                      volumeMounts: 
+                          [
+                            {
+                                name: 'telegram-packages',
+                                mountPath: '/app/packages',
+                            }
+                            ,
+                            {
+                                name: `${name}-config`,
+                                mountPath: '/app/config',
+                            }
+                          ],                        
                       envFrom: [
                         {
                           configMapRef: {
@@ -58,6 +96,19 @@ const generateTelegram = (name, image) => {
                           }
                       }]
                   }],
+
+                  volumes: [
+                    {
+                        name: 'telegram-packages',
+                        persistentVolumeClaim: { claimName: 'disclaim' }
+                    }
+                    ,
+                    {
+                        name: `${name}-config`,
+                        configMap: { name: `${name}-features` }
+                    }
+                  ]
+
                   // restartPolicy: "OnFailure"
               }
           }
@@ -141,4 +192,4 @@ const generateSecret = (data, namespace) => {
   };
 }
 
-module.exports = { generateEnv, generateDiscord, generateTelegram, generateSecret };
+module.exports = { generateEnv, generateDiscord, generateTelegram, generateSecret, generateFeatures };

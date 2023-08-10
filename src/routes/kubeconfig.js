@@ -2,12 +2,13 @@ const express = require('express');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const k8s = require('@kubernetes/client-node');
-const { generateEnv, generateDiscord, generateTelegram } = require('../genenv');
+const { generateEnv, generateDiscord, generateTelegram, generateFeatures } = require('../genenv');
 const auth = require('../middlewares/auth');
 const User = require('../schemas/user');
 const Bot = require('../schemas/bot');
 const listPods = require('../etc/listPods');
 const path = require('path');
+const yaml = require('js-yaml');
 
 require('dotenv').config();
 
@@ -20,7 +21,6 @@ const k8sAppsApi = kc.makeApiClient(k8s.AppsV1Api);
 
 const KubeconfigRouter = express.Router();
 
-// TODO : put openAI and other keys in a global secret
 
 // Create a deployment with environment variables in a ConfigMap
 KubeconfigRouter.post('/deploy', auth, async (req, res) => {
@@ -42,6 +42,15 @@ KubeconfigRouter.post('/deploy', auth, async (req, res) => {
 	const podname = `${name}-${user.username}`.toLowerCase();
 
 	// TODO : Check if bot name is available
+	
+	// Create the features yaml if telegram bot
+	if (req.body.type == 'telegram' && req.body.features.length != 0) {
+		
+		const featuresYaml = yaml.dump(req.body.features);
+		const featuresConfigMap = generateFeatures(featuresYaml, podname);
+
+		await k8sApi.createNamespacedConfigMap(`${namespace}`, featuresConfigMap);
+	}
 
     // Create and deploy the ConfigMap
     let configMapYaml = k8s.dumpYaml({
@@ -50,7 +59,9 @@ KubeconfigRouter.post('/deploy', auth, async (req, res) => {
     });
     configMapYaml = k8s.loadYaml(configMapYaml);
 
-    let resp = await k8sApi.createNamespacedConfigMap(`${namespace}`, configMapYaml)
+    let resp = await k8sApi.createNamespacedConfigMap(`${namespace}`, configMapYaml);
+
+	
 
     // Deploy the pod
     let podYaml = (req.body.type == 'discord') ? generateDiscord(podname, image) : generateTelegram(podname, image);
@@ -318,13 +329,18 @@ KubeconfigRouter.delete('/delete/:id', async (req, res) => {
 	const deploymentName = bot.label;
 	try {
 		// Use the `readNamespacedDeployment` function to get the details of the Deployment
-		const { body: deployment } = await k8sAppsApi.readNamespacedDeployment(deploymentName, namespace);
+		await k8sAppsApi.readNamespacedDeployment(deploymentName, namespace);
 	
 		// Use the `deleteNamespacedDeployment` function to delete the Deployment
-		const { body: deletedDeployment } = await k8sAppsApi.deleteNamespacedDeployment(deploymentName, namespace);
+		await k8sAppsApi.deleteNamespacedDeployment(deploymentName, namespace);
 
 		// Delete configmap
 		await k8sApi.deleteNamespacedConfigMap(`${deploymentName}-configmap`, namespace);
+
+		// For telegram, delete the features.yml configmap
+		if (bot.type == 'telegram')
+			await k8sApi.deleteNamespacedConfigMap(`${deploymentName}-features`, namespace);
+
 		
 		// Delete from database
 		await Bot.findOneAndDelete({ '_id': req.params.id })

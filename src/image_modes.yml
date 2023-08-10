@@ -1,0 +1,72 @@
+no_style:
+  name: 📷 No style
+  prompt: 
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  negative_prompt: 
+
+cinematic:
+  name: 🎬 Cinematic
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  prompt: cinematic shot, unreal engine 5 lighting, production 
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+photorealistic:
+  name: 🎥 Photorealistic
+  model: e316348f-7773-490e-adcd-46757c738eb7
+  prompt: ultra detailed, dslr, super-resolution
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+highly_detailed:
+  name: 📝 Highly detailed
+  prompt: highly detailed, eret 12k, ultra sharp focus, ultra HD
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+
+hyper_realistic:
+  name: 🖼️ Hyper realistic
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  prompt: hyper realistic, hyperrealism, 12k hdr, unreal engine 5, 8k, 12k eret,
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+animation:
+  name: 🎞️ Animation
+  prompt: ultra HD, 32k, super detail, vivid colors, super quality
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, unreal, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+anime:
+  name: 🎌 Anime
+  prompt: anime, intricately detailed, depth of field
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+cartoon:
+  name: 🎨 Cartoon
+  prompt: cartoon, nostalgia, masterpiece, finely detailed
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+sketch:
+  name: 📝 Sketch
+  prompt: sketch, sketch art, highly detailed
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+painting:
+  name: 🎨 Painting
+  prompt: painting, illustration, highly detailed
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+pixel_art:
+  name: 🎮 Pixel art
+  prompt: pixel art, proportionate
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+
+cosmic:
+  name: 🌌 Cosmic
+  prompt: cosmic, celestial, galactic, astral, interstellar, heavenly
+  model: ac614f96-1082-45bf-be9d-757f2d31c174
+  negative_prompt: bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, extra thigh, worst thigh, missing fingers, ugly fingers, long fingers, horn, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, poorly rendered face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, images cut out at the top, left, right, bottom, bad composition, mutated body parts, blurry image, disfigured, oversaturated, deformed body features, extra hands, extra limbs, mutation, big head, ugly eyes, close-up, two heads, plastic, Deformed, crossed eyes, poorly drawn hands, missing limb, floating limbs, malformed hands, blur, out of focus, long neck, long body, out of frame, blender, doll, cropped, close up, two faces, repetitive, black and white, grainy, 
+  

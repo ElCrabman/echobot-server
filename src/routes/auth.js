@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
 const User = require('../schemas/user');
 const auth = require('../middlewares/auth');
+const admin = require('../middlewares/admin');
 
 dotenv.config();
 
@@ -52,7 +53,7 @@ authRouter.post('/login', async (req, res) => {
 
 });
 
-//Get profile info
+// Get profile info
 authRouter.get('/info', auth, async (req, res) => {
 	const user = await User.findOne({"_id": req.user._id});
 
@@ -63,6 +64,12 @@ authRouter.get('/info', auth, async (req, res) => {
 	});
 });
 
+// Check si the user is an admin
+authRouter.get('/isadmin', [auth, admin], async (req, res) => {
+
+    res.sendStatus(200);
+    
+});
 
 
 module.exports = authRouter;
