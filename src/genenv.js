@@ -13,7 +13,6 @@ const imageModes = () => {
     // return yaml.dump(jsonImageModes);
 }
 
-imageModes()
 
 const generateEnv = (data) => {
     
