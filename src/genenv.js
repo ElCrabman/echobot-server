@@ -37,7 +37,7 @@ const generateFeatures = (data, podname) => {
           name: `${podname}-features`
         },
         data: {
-          "features.yml": data,
+          "features.yml": data.replace('- ', '-'),
           "image_modes.yml": imageModes()
         }
       }
