@@ -30,7 +30,6 @@ const generateEnv = (data) => {
 };
 
 const generateFeatures = (data, podname) => {
-    console.log(typeof data)
     
     return {
         apiVersion: "v1",

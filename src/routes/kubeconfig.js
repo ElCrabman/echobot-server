@@ -43,8 +43,6 @@ KubeconfigRouter.post('/deploy', auth, async (req, res) => {
 
 	// TODO : Check if bot name is available
 	// TODO : deal with crashes
-	const featuresYaml = yaml.dump(req.body.features);
-	generateFeatures(featuresYaml, podname)
 
 
 	// Create the features yaml if telegram bot
