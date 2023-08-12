@@ -47,8 +47,19 @@ KubeconfigRouter.post('/deploy', auth, async (req, res) => {
 
 	// Create the features yaml if telegram bot
 	if (req.body.type == 'telegram' && req.body.features.length != 0) {
-		
-		const featuresYaml = yaml.dump(req.body.features);
+
+		// Turn JSON into the right format for the yaml features file
+		const newFeatures = []
+
+		req.body.features.map((e) => {
+			const { channel_id, ...featuresData} = e
+			temp = {}
+			temp[e['channel_id']] = featuresData
+			newFeatures.push(temp)
+		})
+
+		// Create the configmap		
+		const featuresYaml = yaml.dump(newFeatures);
 		const featuresConfigMap = generateFeatures(featuresYaml, podname);
 
 		await k8sApi.createNamespacedConfigMap(`${namespace}`, featuresConfigMap);
@@ -124,12 +135,27 @@ KubeconfigRouter.get('/configmap/:id', async (req, res) => {
 	try {
 		// Use the `readNamespacedConfigMap` function to get the details of the specified ConfigMap
 		const { body: configMap } = await k8sApi.readNamespacedConfigMap(configMapName, namespace);
+		let data = { ...configMap.data };
 
-		return res.status(200).send({ ...configMap.data, BOT_NAME: bot.name });
-	  } catch (err) {
+		// If telegram bot, get the channel yaml file
+		if (bot.type == "telegram"){
+			const { body: yamlFeatures } = await k8sApi.readNamespacedConfigMap(`${bot.label}-features`, namespace);
+			const features = yaml.load(yamlFeatures.data['features.yml'].replaceAll('-', '- '));
+			const newFeatures = [];
+
+			features.map((e) => {    
+				const key = Object.keys(e)[0];
+				newFeatures.push({channel_id: key, ...e[key]})
+			})
+
+			data = { ...data, config: newFeatures};
+		}
+
+		return res.status(200).send({ ...data, BOT_NAME: bot.name });
+	} catch (err) {
 		console.error("Error reading ConfigMap:", err.statusCode);
 		return res.status(err.statusCode).send('No ConfigMap');
-	  }
+	}
 });
 
 // Get a single bot's configmap
