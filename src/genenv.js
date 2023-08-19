@@ -101,6 +101,12 @@ const generateTelegram = (name, image) => {
                       }]
                   }],
 
+                  imagePullSecrets: [
+                    {
+                      "name": "regcred"
+                    }
+                  ],
+
                   volumes: [
                     {
                         name: 'telegram-packages',
@@ -169,6 +175,12 @@ const generateDiscord = (name, image, type) => {
                             }
                         }]
                     }],
+
+                    imagePullSecrets: [
+                        {
+                          "name": "regcred"
+                        }
+                    ],
 
                     volumes: [
                       {
